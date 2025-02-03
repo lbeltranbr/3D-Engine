@@ -298,7 +298,7 @@ vec3 ComputeAmbientLight(vec3 N, vec3 V, vec3 F0, vec3 albedo, float roughness, 
 float ComputeShadow()
 {
   vec4 position = u_lightSpace * vec4(vertex.Position, 1.0); 
-  vec3 coords = (position.xyz / position.w) * 0.5 + 0.5;
+  vec3 coords = (position.xyz / position.w) * 0.5 + 0.5; //perform perspective divide, transform to [0,1] range
 
   // pixel size (1024 -> map size)
   float pixelSize = 1.0/1024;
@@ -309,7 +309,7 @@ float ComputeShadow()
     for(int y = -1; y <= 1; ++y)
     {
       float depth = texture(u_depthMap, coords.xy + vec2(x, y) * pixelSize).r; 
-      shadow += (position.z - u_shadowBias) > depth ? 0.7 : 0.0;        
+      shadow += (position.z - u_shadowBias) > depth ? 0.7: 0.0;        
     }    
   }
   shadow /= 9.0;
@@ -377,6 +377,7 @@ void main(){
                   ComputeAmbientLight(N, V, F0, albedo, roughness, metalness);
 
     result = (result * occlusion) + emissive;
+
     result *= (1.0 - ComputeShadow());
      // output brightness 
      //dot product = 1 means parallel vectors

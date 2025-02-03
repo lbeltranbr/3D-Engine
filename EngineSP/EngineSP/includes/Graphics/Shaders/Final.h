@@ -20,7 +20,7 @@ namespace SP
             #endif
         }
 
-        SP_INLINE void Render(uint32_t map, uint32_t bloom)
+        SP_INLINE void Render(uint32_t map, uint32_t bloom, bool useBloom)
         {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
             glClearColor(0, 0, 0, 1);
@@ -40,10 +40,12 @@ namespace SP
             glBindTexture(GL_TEXTURE_2D, map);
             glUniform1i(u_Map, 0);
 
-            // set bloom map
-            glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_2D, bloom);
-            glUniform1i(u_Bloom, 1);
+            if (useBloom) {
+				// set bloom map
+				glActiveTexture(GL_TEXTURE1);
+				glBindTexture(GL_TEXTURE_2D, bloom);
+				glUniform1i(u_Bloom, 1);
+            }
 
             m_Quad->Draw(GL_TRIANGLES);
 

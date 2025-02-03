@@ -30,6 +30,7 @@ namespace SP
 
         SP_INLINE void Draw(SkyboxMesh& mesh, uint32_t cubeMap, Transform3D& transform)
         {
+
             glm::mat4 model = glm::toMat4(glm::quat(glm::radians(transform.Rotation)));
 
             //glUseProgram(m_ShaderID);
@@ -45,6 +46,7 @@ namespace SP
                 #endif
             #endif
             RenderSkyboxMesh(mesh);
+
         }
 
     private:

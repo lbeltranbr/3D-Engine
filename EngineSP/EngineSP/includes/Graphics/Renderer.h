@@ -10,6 +10,9 @@
 #include "Shaders/Shadow.h"
 #include "Shaders/Bloom.h"
 
+#include <iostream>
+
+
 namespace SP {
 
 	struct GraphicsRenderer {
@@ -77,8 +80,11 @@ namespace SP {
 			#endif
 			float aspect = m_Frame->Ratio();
 
-			m_Skybox->Bind();
-			m_Skybox->SetCamera(camera, transform, aspect);
+			if (camera.RenderDepth) {
+				m_Skybox->Bind();
+				m_Skybox->SetCamera(camera, transform, aspect);
+			}
+
 			m_Pbr->Bind(); //start using PBR shader
 			m_Pbr->SetCamera(camera, transform, aspect);
 
@@ -122,15 +128,26 @@ namespace SP {
 		}
 		SP_INLINE void DrawSkybox(Skybox& sky, Transform3D& transform)
 		{
+			// Configure stencil to mark skybox pixels
+			glStencilFunc(GL_ALWAYS, 1, 0xFF);  // Always pass, write 1
+			glStencilOp(GL_REPLACE, GL_REPLACE, GL_REPLACE);  // Replace stencil value with 1
+			glStencilMask(0xFF);  // Enable stencil writing
+
 			m_Skybox->Bind();
 			m_Skybox->Draw(m_SkyboxMesh, sky.CubeMap, transform);
 
 			m_Pbr->Bind();
 			m_Pbr->SetEnvMaps(sky.IrradMap, sky.PrefilMap, sky.BrdfMap, m_Shadow->GetDepthMap());
+
+			glStencilMask(0x00);  // Disable writing to stencil buffer after skybox
+
 		}
 		//DRAW
 		SP_INLINE void Draw(Model3D& model, PbrMaterial& material, Transform3D& transform)
 		{
+			// Render objects normally
+			glStencilFunc(GL_NOTEQUAL, 1, 0xFF);  // Only render where stencil != 1
+			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);  // Keep stencil values
 			//m_Pbr->Bind();//not needed for now, be careful when you add new shaders
 			m_Pbr->Draw(model, material, transform);
 		}
@@ -173,6 +190,14 @@ namespace SP {
 			#endif
 			m_Frame->Begin(); //Bind FrameBuffer and clear it
 			//m_Pbr->Bind(); //not here because we use skybox first
+
+			 // Enable stencil test and clear stencil buffer
+			glEnable(GL_STENCIL_TEST);
+			glClear(GL_STENCIL_BUFFER_BIT);
+
+			// Allow stencil writes (set mask to 0xFF)
+			glStencilMask(0xFF);
+
 		}
 		SP_INLINE void EndFrame()
 		{
@@ -183,13 +208,18 @@ namespace SP {
 					spdlog::info("RENDERER: End Frame");
 				#endif
 			#endif
-					//we don't need this since m_final is gonna unbind when calling render and also skybox is last to be rendered 
-					// so shoud be the one to call unbind not pbr
-					// 
-			// post-processing
+
+			
+			// Enable stencil test to exclude skybox
+			glEnable(GL_STENCIL_TEST);
+			glStencilFunc(GL_NOTEQUAL, 1, 0xFF);  // Apply bloom only where stencil != 1
+			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP); // Keep stencil values unchanged	
+					
 			m_Bloom->Bind();
 			m_Bloom->Compute(m_Frame->GetBrightnessMap(), 10);
-	
+
+			glDisable(GL_STENCIL_TEST);
+
 		}
 		SP_INLINE void ShowFrame()
 		{
@@ -199,7 +229,8 @@ namespace SP {
 					spdlog::info("RENDERER: ShowFrame()");
 				#endif
 			#endif
-			m_Final->Render(m_Frame->GetTexture(), m_Bloom->GetMap());
+			m_Final->Render(m_Frame->GetTexture(), m_Bloom->GetMap(), true);
+			//m_Final->Render(m_Shadow->GetDepthMap(), m_Bloom->GetMap(), false);
 			//m_Final->Render(m_Shadow->GetDepthMap());
 		}
 		SP_INLINE void BeginShadowPass(const glm::vec3& LightDir)

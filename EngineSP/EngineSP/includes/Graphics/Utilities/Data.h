@@ -26,7 +26,7 @@ namespace SP
 
         float Roughness = 0.5f;
         float Metalness = 0.0f;
-        float Occlusion = 0.0f;
+        float Occlusion = 1.0f;
 
         Texture OcclusionMap;
         Texture RoughnessMap;
@@ -109,6 +109,7 @@ namespace SP
         float NearPlane = 0.3000f;
         float FarPlane = 1000.0f;
         float FOV = 45.0f;
+        bool RenderDepth = false;
     };
 
 }

@@ -38,5 +38,9 @@ void main()
 
 	// fragment color
 	out_fragment = vec4(result, 1.0); 
+
+	//to view shadowmap 
+	// float result = texture(u_map, uv).r;
+	//out_fragment = vec4(vec3(result), 1.0);
 }
 //FRAGMENT//

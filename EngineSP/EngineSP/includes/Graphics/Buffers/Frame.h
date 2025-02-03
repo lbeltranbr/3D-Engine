@@ -62,7 +62,7 @@ namespace SP
 
             // Resize Render Buffer
             glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_Width, m_Height);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
 
             glBindRenderbuffer(GL_RENDERBUFFER, 0);
             glBindTexture(GL_TEXTURE_2D, 0);
@@ -144,8 +144,8 @@ namespace SP
         {
             glGenRenderbuffers(1, &m_Render);
             glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_Width, m_Height);
-            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_Render);
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_Render);
         }
 
     private:

@@ -22,7 +22,7 @@ namespace SP
             m_Width = (width / m_Scale);
 
             // create frame buffer
-            glGenFramebuffers(2, m_FrameBuffer);
+            glGenFramebuffers(2, pingpongFBO);
 
             // create horizontal texture
             glGenTextures(2, m_PingPongMaps);
@@ -30,12 +30,11 @@ namespace SP
             for (auto i = 0; i < 2; i++)
             {
                 // bind target frame buffer
-                glBindFramebuffer(GL_FRAMEBUFFER, m_FrameBuffer[i]);
+                glBindFramebuffer(GL_FRAMEBUFFER, pingpongFBO[i]);
 
                 // bind current texture 
                 glBindTexture(GL_TEXTURE_2D, m_PingPongMaps[i]);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
-                    m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
 
                 // set texture parameters
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -44,8 +43,7 @@ namespace SP
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
                 // attach to frame buffer
-                glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                    GL_TEXTURE_2D, m_PingPongMaps[i], 0);
+                glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_PingPongMaps[i], 0);
 
                 // check frame buffer
                 if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
@@ -81,7 +79,7 @@ namespace SP
 
             for (uint32_t i = 0u; i < stepCount; i++)
             {
-                glBindFramebuffer(GL_FRAMEBUFFER, m_FrameBuffer[horizontal]);
+                glBindFramebuffer(GL_FRAMEBUFFER, pingpongFBO[horizontal]);
                 glUniform1i(u_HorizontalPass, horizontal);
 
                 if (i > 0)
@@ -122,7 +120,7 @@ namespace SP
 
         SP_INLINE ~BloomShader()
         {
-            glDeleteFramebuffers(2, m_FrameBuffer);
+            glDeleteFramebuffers(2, pingpongFBO);
             glDeleteTextures(2, m_PingPongMaps);
         }
 
@@ -133,7 +131,7 @@ namespace SP
         uint32_t u_FrameWidth = 0u;
 
         uint32_t m_PingPongMaps[2];
-        uint32_t m_FrameBuffer[2];
+        uint32_t pingpongFBO[2];
 
         int32_t m_Height = 0;
         int32_t m_Width = 0;

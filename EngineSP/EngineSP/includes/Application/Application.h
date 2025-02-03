@@ -42,8 +42,13 @@ namespace SP {
 
 			// create scene camera
 			auto camera = CreateEntt<Entity>();
-			camera.Attach<TransformComponent>().Transform.Translate.z = 3.0f;
+			camera.Attach<TransformComponent>().Transform.Translate.z = 5.0f;
 			camera.Attach<CameraComponent>();
+
+			// create scene camera
+			auto camera2 = CreateEntt<Entity>();
+			camera2.Attach<TransformComponent>().Transform.Translate.z = camera.Get<TransformComponent>().Transform.Translate.z;
+			camera2.Attach<CameraComponent>().Camera.RenderDepth = true;
 
 			// skybox entity
 			auto skybox = CreateEntt<Entity>();
@@ -56,22 +61,22 @@ namespace SP {
 			//dlight1.Attach<TransformComponent>().Transform.Rotation = glm::vec3(90.0f, 0.0f, 0.0f);
 
 			auto dlight1 = CreateEntt<Entity>();
-			dlight1.Attach<DirectLightComponent>().Light.Intensity = 1.0f;
+			dlight1.Attach<DirectLightComponent>().Light.Intensity = 0.1f;
 			dlight1.Attach<TransformComponent>().Transform.Rotation = glm::vec3(0.0f, 5.0f, -5.0f);
 
-			auto plight1 = CreateEntt<Entity>();
-			plight1.Attach<PointLightComponent>().Light.Radiance = glm::vec3(1.0f, 0.0f, 0.0f);//red
-			plight1.Get<PointLightComponent>().Light.Intensity = 10.0f;
-			plight1.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, 1.0f, -2.0f);
+			//auto plight1 = CreateEntt<Entity>();
+			//plight1.Attach<PointLightComponent>().Light.Radiance = glm::vec3(1.0f, 0.0f, 0.0f);//red
+			//plight1.Get<PointLightComponent>().Light.Intensity = 10.0f;
+			//plight1.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, 1.0f, -2.0f);
 
 			auto plue = CreateEntt<Entity>();
 			auto& modp = plue.Attach<ModelComponent>();
 			modp.Model = plueModel;
 			modp.Material.Albedo = glm::vec3(1.0f, 1.0f, 1.0f);
 			modp.Material.Roughness = 0.9f;
-			modp.Material.Metalness = 0.0f;
+			//modp.Material.Metalness = 0.1f;
 			plue.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
-			plue.Get<TransformComponent>().Transform.Translate = glm::vec3(2.0f, 1.0f, -3.0f);
+			plue.Get<TransformComponent>().Transform.Translate = glm::vec3(2.0f, -0.5f, -3.0f);
 			//plue.Get<TransformComponent>().Transform.Scale = glm::vec3(0.5);
 
 			auto sphere = CreateEntt<Entity>();
@@ -86,7 +91,7 @@ namespace SP {
 			auto& mod1 = cube.Attach<ModelComponent>();
 			mod1.Model = cubeModel;
 			mod1.Material.AlbedoMap = albedo2;
-			mod1.Material.NormalMap = normal;
+			mod1.Material.NormalMap = normal2;
 			mod1.Material.RoughnessMap = roughness2;
 			mod1.Material.OcclusionMap = ambientOcclusion;
 			mod1.Material.Metalness = 0.0f;
