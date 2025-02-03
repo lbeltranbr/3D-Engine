@@ -1,0 +1,14 @@
+{
+  "FileVersion": 2,
+  "ProjectArguments": [
+    {
+      "Id": "50fa4330-545a-4ac1-b78a-ca2f8a1e70af",
+      "Items": [
+        {
+          "Id": "650ef599-80ea-4aa6-aa61-1d9ba908222c",
+          "Command": "/DENABLE_COMMENTS=0"
+        }
+      ]
+    }
+  ]
+}

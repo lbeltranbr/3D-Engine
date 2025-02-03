@@ -1,0 +1,631 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.11.2+c078802d4 for .NET Framework
+      Build started 11/09/2024 11:30:45.
+      
+      Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.50
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/3.30.3/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.11.2+c078802d4 for .NET Framework
+      Build started 11/09/2024 11:30:46.
+      
+      Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\3.30.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.50
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/3.30.3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-v9b8we"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-v9b8we"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-v9b8we'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9495a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:47.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-v9b8we\\cmTC_9495a.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_9495a.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-v9b8we\\Debug\\".
+          Creating directory "cmTC_9495a.dir\\Debug\\cmTC_9495a.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_9495a.dir\\Debug\\cmTC_9495a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9495a.dir\\Debug\\cmTC_9495a.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9495a.dir\\Debug\\\\" /Fd"cmTC_9495a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9495a.dir\\Debug\\\\" /Fd"cmTC_9495a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-v9b8we\\Debug\\cmTC_9495a.exe" /INCREMENTAL /ILK:"cmTC_9495a.dir\\Debug\\cmTC_9495a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-v9b8we/Debug/cmTC_9495a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-v9b8we/Debug/cmTC_9495a.lib" /MACHINE:X64  /machine:x64 cmTC_9495a.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_9495a.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-v9b8we\\Debug\\cmTC_9495a.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_9495a.dir\\Debug\\cmTC_9495a.tlog\\unsuccessfulbuild".
+          Touching "cmTC_9495a.dir\\Debug\\cmTC_9495a.tlog\\cmTC_9495a.lastbuildstate".
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-v9b8we\\cmTC_9495a.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.47
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.41.34120.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hr28bd"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hr28bd"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hr28bd'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b9f84.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:48.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hr28bd\\cmTC_b9f84.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_b9f84.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hr28bd\\Debug\\".
+          Creating directory "cmTC_b9f84.dir\\Debug\\cmTC_b9f84.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_b9f84.dir\\Debug\\cmTC_b9f84.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b9f84.dir\\Debug\\cmTC_b9f84.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b9f84.dir\\Debug\\\\" /Fd"cmTC_b9f84.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b9f84.dir\\Debug\\\\" /Fd"cmTC_b9f84.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hr28bd\\Debug\\cmTC_b9f84.exe" /INCREMENTAL /ILK:"cmTC_b9f84.dir\\Debug\\cmTC_b9f84.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hr28bd/Debug/cmTC_b9f84.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hr28bd/Debug/cmTC_b9f84.lib" /MACHINE:X64  /machine:x64 cmTC_b9f84.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_b9f84.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hr28bd\\Debug\\cmTC_b9f84.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_b9f84.dir\\Debug\\cmTC_b9f84.tlog\\unsuccessfulbuild".
+          Touching "cmTC_b9f84.dir\\Debug\\cmTC_b9f84.tlog\\cmTC_b9f84.lastbuildstate".
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hr28bd\\cmTC_b9f84.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.48
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:74 (PROJECT)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.41.34120.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:35 (check_include_file)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-d0frmz"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-d0frmz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-d0frmz'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_eb618.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:49.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\cmTC_eb618.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_eb618.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\Debug\\".
+          Creating directory "cmTC_eb618.dir\\Debug\\cmTC_eb618.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_eb618.dir\\Debug\\cmTC_eb618.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_eb618.dir\\Debug\\cmTC_eb618.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_eb618.dir\\Debug\\\\" /Fd"cmTC_eb618.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\CheckIncludeFile.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_eb618.dir\\Debug\\\\" /Fd"cmTC_eb618.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\Debug\\cmTC_eb618.exe" /INCREMENTAL /ILK:"cmTC_eb618.dir\\Debug\\cmTC_eb618.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-d0frmz/Debug/cmTC_eb618.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-d0frmz/Debug/cmTC_eb618.lib" /MACHINE:X64  /machine:x64 cmTC_eb618.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_eb618.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\Debug\\cmTC_eb618.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_eb618.dir\\Debug\\cmTC_eb618.tlog\\unsuccessfulbuild".
+          Touching "cmTC_eb618.dir\\Debug\\cmTC_eb618.tlog\\cmTC_eb618.lastbuildstate".
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-d0frmz\\cmTC_eb618.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.48
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:36 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-m1fxsh"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-m1fxsh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-m1fxsh'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_804cb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:50.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\cmTC_804cb.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_804cb.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\Debug\\".
+          Creating directory "cmTC_804cb.dir\\Debug\\cmTC_804cb.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_804cb.dir\\Debug\\cmTC_804cb.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_804cb.dir\\Debug\\cmTC_804cb.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_804cb.dir\\Debug\\\\" /Fd"cmTC_804cb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\CheckIncludeFile.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_804cb.dir\\Debug\\\\" /Fd"cmTC_804cb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\Debug\\cmTC_804cb.exe" /INCREMENTAL /ILK:"cmTC_804cb.dir\\Debug\\cmTC_804cb.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-m1fxsh/Debug/cmTC_804cb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-m1fxsh/Debug/cmTC_804cb.lib" /MACHINE:X64  /machine:x64 cmTC_804cb.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_804cb.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\Debug\\cmTC_804cb.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_804cb.dir\\Debug\\cmTC_804cb.tlog\\unsuccessfulbuild".
+          Touching "cmTC_804cb.dir\\Debug\\cmTC_804cb.tlog\\cmTC_804cb.lastbuildstate".
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-m1fxsh\\cmTC_804cb.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.48
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:37 (check_include_file)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-rq4qa0"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-rq4qa0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-rq4qa0'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3d86f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:50.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\cmTC_3d86f.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_3d86f.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\Debug\\".
+          Creating directory "cmTC_3d86f.dir\\Debug\\cmTC_3d86f.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_3d86f.dir\\Debug\\cmTC_3d86f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_3d86f.dir\\Debug\\cmTC_3d86f.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3d86f.dir\\Debug\\\\" /Fd"cmTC_3d86f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\CheckIncludeFile.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3d86f.dir\\Debug\\\\" /Fd"cmTC_3d86f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\Debug\\cmTC_3d86f.exe" /INCREMENTAL /ILK:"cmTC_3d86f.dir\\Debug\\cmTC_3d86f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-rq4qa0/Debug/cmTC_3d86f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-rq4qa0/Debug/cmTC_3d86f.lib" /MACHINE:X64  /machine:x64 cmTC_3d86f.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_3d86f.vcxproj -> D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\Debug\\cmTC_3d86f.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_3d86f.dir\\Debug\\cmTC_3d86f.tlog\\unsuccessfulbuild".
+          Touching "cmTC_3d86f.dir\\Debug\\cmTC_3d86f.tlog\\cmTC_3d86f.lastbuildstate".
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-rq4qa0\\cmTC_3d86f.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.45
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckTypeSize.cmake:147 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckTypeSize.cmake:272 (__check_type_size_impl)"
+      - "contrib/zlib/CMakeLists.txt:55 (check_type_size)"
+    checks:
+      - "Check size of off64_t"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-x1i5mx"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-x1i5mx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "HAVE_OFF64_T"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-x1i5mx'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ad82b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:51.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_ad82b.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\Debug\\".
+          Creating directory "cmTC_ad82b.dir\\Debug\\cmTC_ad82b.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_ad82b.dir\\Debug\\cmTC_ad82b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ad82b.dir\\Debug\\cmTC_ad82b.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ad82b.dir\\Debug\\\\" /Fd"cmTC_ad82b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ad82b.dir\\Debug\\\\" /Fd"cmTC_ad82b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c"
+          OFF64_T.c
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(29,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(30,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(31,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(32,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(33,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(29,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(30,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(31,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(32,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\OFF64_T.c(33,12): error C2065: 'off64_t': undeclared identifier [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-x1i5mx\\cmTC_ad82b.vcxproj]
+        
+            0 Warning(s)
+            5 Error(s)
+        
+        Time Elapsed 00:00:00.29
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:64 (check_function_exists)"
+    checks:
+      - "Looking for fseeko"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-o7k3vc"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-o7k3vc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "HAVE_FSEEKO"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-o7k3vc'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_18565.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:52.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_18565.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\Debug\\".
+          Creating directory "cmTC_18565.dir\\Debug\\cmTC_18565.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_18565.dir\\Debug\\cmTC_18565.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_18565.dir\\Debug\\cmTC_18565.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_18565.dir\\Debug\\\\" /Fd"cmTC_18565.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_18565.dir\\Debug\\\\" /Fd"cmTC_18565.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\Debug\\cmTC_18565.exe" /INCREMENTAL /ILK:"cmTC_18565.dir\\Debug\\cmTC_18565.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-o7k3vc/Debug/cmTC_18565.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-o7k3vc/Debug/cmTC_18565.lib" /MACHINE:X64  /machine:x64 cmTC_18565.dir\\Debug\\CheckFunctionExists.obj
+        CheckFunctionExists.obj : error LNK2019: unresolved external symbol fseeko referenced in function main [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj]
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\Debug\\cmTC_18565.exe : fatal error LNK1120: 1 unresolved externals [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj]
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          CheckFunctionExists.obj : error LNK2019: unresolved external symbol fseeko referenced in function main [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj]
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\Debug\\cmTC_18565.exe : fatal error LNK1120: 1 unresolved externals [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-o7k3vc\\cmTC_18565.vcxproj]
+        
+            0 Warning(s)
+            2 Error(s)
+        
+        Time Elapsed 00:00:00.43
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:72 (check_include_file)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hnw4ax"
+      binary: "D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hnw4ax"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/lbeltranbravo/Downloads/assimp-master/cmake-modules"
+    buildResult:
+      variable: "Z_HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/CMakeScratch/TryCompile-hnw4ax'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9cfa1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.11.2+c078802d4 for .NET Framework
+        Build started 11/09/2024 11:30:52.
+        
+        Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\cmTC_9cfa1.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_9cfa1.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\Debug\\".
+          Creating directory "cmTC_9cfa1.dir\\Debug\\cmTC_9cfa1.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_9cfa1.dir\\Debug\\cmTC_9cfa1.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9cfa1.dir\\Debug\\cmTC_9cfa1.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9cfa1.dir\\Debug\\\\" /Fd"cmTC_9cfa1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\CheckIncludeFile.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34120 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9cfa1.dir\\Debug\\\\" /Fd"cmTC_9cfa1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\cmTC_9cfa1.vcxproj]
+        Done Building Project "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\cmTC_9cfa1.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\cmTC_9cfa1.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\\availability\\3D Engine\\EngineSP\\Resources\\test\\CMakeFiles\\CMakeScratch\\TryCompile-hnw4ax\\cmTC_9cfa1.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.29
+        
+      exitCode: 1
+...

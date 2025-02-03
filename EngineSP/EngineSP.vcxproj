@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{50fa4330-545a-4ac1-b78a-ca2f8a1e70af}</ProjectGuid>
+    <RootNamespace>EngineSP</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;ENABLE_COMMENTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries;$(MSBuildProjectDirectory)\Resources\Libraries\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;D:\availability\3D Engine\EngineSP\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>-DENABLE_COMMENTS=0 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mtd.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\assimp\include\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mt.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineSP\includes\Application\Application.h" />
+    <ClInclude Include="EngineSP\includes\Application\Context.h" />
+    <ClInclude Include="EngineSP\includes\Application\Interface.h" />
+    <ClInclude Include="EngineSP\includes\Auxiliaries\ECS.h" />
+    <ClInclude Include="EngineSP\includes\Common\Core.h" />
+    <ClInclude Include="EngineSP\includes\Common\Event.h" />
+    <ClInclude Include="EngineSP\includes\EngineSP.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\Frame.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\Mesh.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\Vertex.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Models\Helper.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Models\Model.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Renderer.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Bloom.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\BRDF.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Final.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Irradiance.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\PBR.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Prefiltered.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Shader.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\Shadow.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\SkyBox.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\SkyMap.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Textures\Texture.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Utilities\Data.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Utilities\Quad.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Utilities\Skybox.h" />
+    <ClInclude Include="EngineSP\includes\Window\Events.h" />
+    <ClInclude Include="EngineSP\includes\Window\Inputs.h" />
+    <ClInclude Include="EngineSP\includes\Window\Window.h" />
+    <ClInclude Include="Resources\assimp\aabb.h" />
+    <ClInclude Include="Resources\assimp\ai_assert.h" />
+    <ClInclude Include="Resources\assimp\anim.h" />
+    <ClInclude Include="Resources\assimp\AssertHandler.h" />
+    <ClInclude Include="Resources\assimp\Base64.hpp" />
+    <ClInclude Include="Resources\assimp\BaseImporter.h" />
+    <ClInclude Include="Resources\assimp\Bitmap.h" />
+    <ClInclude Include="Resources\assimp\BlobIOSystem.h" />
+    <ClInclude Include="Resources\assimp\ByteSwapper.h" />
+    <ClInclude Include="Resources\assimp\camera.h" />
+    <ClInclude Include="Resources\assimp\cexport.h" />
+    <ClInclude Include="Resources\assimp\cfileio.h" />
+    <ClInclude Include="Resources\assimp\cimport.h" />
+    <ClInclude Include="Resources\assimp\ColladaMetaData.h" />
+    <ClInclude Include="Resources\assimp\color4.h" />
+    <ClInclude Include="Resources\assimp\commonMetaData.h" />
+    <ClInclude Include="Resources\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="Resources\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="Resources\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="Resources\assimp\config.h" />
+    <ClInclude Include="Resources\assimp\CreateAnimMesh.h" />
+    <ClInclude Include="Resources\assimp\DefaultIOStream.h" />
+    <ClInclude Include="Resources\assimp\DefaultIOSystem.h" />
+    <ClInclude Include="Resources\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="Resources\assimp\defs.h" />
+    <ClInclude Include="Resources\assimp\Exceptional.h" />
+    <ClInclude Include="Resources\assimp\Exporter.hpp" />
+    <ClInclude Include="Resources\assimp\fast_atof.h" />
+    <ClInclude Include="Resources\assimp\GenericProperty.h" />
+    <ClInclude Include="Resources\assimp\GltfMaterial.h" />
+    <ClInclude Include="Resources\assimp\Hash.h" />
+    <ClInclude Include="Resources\assimp\Importer.hpp" />
+    <ClInclude Include="Resources\assimp\importerdesc.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\aabb.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ai_assert.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\anim.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\AssertHandler.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Base64.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\BaseImporter.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Bitmap.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\BlobIOSystem.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ByteSwapper.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\camera.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\cexport.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\cfileio.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\cimport.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ColladaMetaData.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\color4.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\commonMetaData.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\config.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\CreateAnimMesh.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\DefaultIOStream.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\DefaultIOSystem.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\defs.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Exceptional.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\fast_atof.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\GenericProperty.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\GltfMaterial.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Hash.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Importer.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\importerdesc.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\IOStreamBuffer.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\light.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\LineSplitter.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\LogAux.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Logger.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\material.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\MathFunctions.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\MemoryIOWrapper.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\mesh.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\metadata.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ObjMaterial.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ParsingUtils.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\pbrmaterial.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\postprocess.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Profiler.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\qnan.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\quaternion.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\RemoveComments.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\revision.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\scene.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SceneCombiner.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SGSpatialSort.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SkeletonMeshBuilder.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SmallVector.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SmoothingGroups.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\SpatialSort.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\StandardShapes.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\StreamReader.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\StreamWriter.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\StringComparison.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\StringUtils.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Subdivision.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\texture.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\TinyFormatter.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\types.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\vector2.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\vector3.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\version.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\Vertex.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\XmlParser.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\XMLTools.h" />
+    <ClInclude Include="Resources\Libraries\assimp\include\assimp\ZipArchiveIOSystem.h" />
+    <ClInclude Include="Resources\assimp\IOStream.hpp" />
+    <ClInclude Include="Resources\assimp\IOStreamBuffer.h" />
+    <ClInclude Include="Resources\assimp\IOSystem.hpp" />
+    <ClInclude Include="Resources\assimp\light.h" />
+    <ClInclude Include="Resources\assimp\LineSplitter.h" />
+    <ClInclude Include="Resources\assimp\LogAux.h" />
+    <ClInclude Include="Resources\assimp\Logger.hpp" />
+    <ClInclude Include="Resources\assimp\LogStream.hpp" />
+    <ClInclude Include="Resources\assimp\material.h" />
+    <ClInclude Include="Resources\assimp\MathFunctions.h" />
+    <ClInclude Include="Resources\assimp\matrix3x3.h" />
+    <ClInclude Include="Resources\assimp\matrix4x4.h" />
+    <ClInclude Include="Resources\assimp\MemoryIOWrapper.h" />
+    <ClInclude Include="Resources\assimp\mesh.h" />
+    <ClInclude Include="Resources\assimp\metadata.h" />
+    <ClInclude Include="Resources\assimp\NullLogger.hpp" />
+    <ClInclude Include="Resources\assimp\ObjMaterial.h" />
+    <ClInclude Include="Resources\assimp\ParsingUtils.h" />
+    <ClInclude Include="Resources\assimp\pbrmaterial.h" />
+    <ClInclude Include="Resources\assimp\port\AndroidJNI\AndroidJNIIOSystem.h" />
+    <ClInclude Include="Resources\assimp\port\AndroidJNI\BundledAssetIOSystem.h" />
+    <ClInclude Include="Resources\assimp\postprocess.h" />
+    <ClInclude Include="Resources\assimp\Profiler.h" />
+    <ClInclude Include="Resources\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="Resources\assimp\qnan.h" />
+    <ClInclude Include="Resources\assimp\quaternion.h" />
+    <ClInclude Include="Resources\assimp\RemoveComments.h" />
+    <ClInclude Include="Resources\assimp\scene.h" />
+    <ClInclude Include="Resources\assimp\SceneCombiner.h" />
+    <ClInclude Include="Resources\assimp\SGSpatialSort.h" />
+    <ClInclude Include="Resources\assimp\SkeletonMeshBuilder.h" />
+    <ClInclude Include="Resources\assimp\SmallVector.h" />
+    <ClInclude Include="Resources\assimp\SmoothingGroups.h" />
+    <ClInclude Include="Resources\assimp\SpatialSort.h" />
+    <ClInclude Include="Resources\assimp\StandardShapes.h" />
+    <ClInclude Include="Resources\assimp\StreamReader.h" />
+    <ClInclude Include="Resources\assimp\StreamWriter.h" />
+    <ClInclude Include="Resources\assimp\StringComparison.h" />
+    <ClInclude Include="Resources\assimp\StringUtils.h" />
+    <ClInclude Include="Resources\assimp\Subdivision.h" />
+    <ClInclude Include="Resources\assimp\texture.h" />
+    <ClInclude Include="Resources\assimp\TinyFormatter.h" />
+    <ClInclude Include="Resources\assimp\types.h" />
+    <ClInclude Include="Resources\assimp\vector2.h" />
+    <ClInclude Include="Resources\assimp\vector3.h" />
+    <ClInclude Include="Resources\assimp\version.h" />
+    <ClInclude Include="Resources\assimp\Vertex.h" />
+    <ClInclude Include="Resources\assimp\XmlParser.h" />
+    <ClInclude Include="Resources\assimp\XMLTools.h" />
+    <ClInclude Include="Resources\assimp\ZipArchiveIOSystem.h" />
+    <ClInclude Include="Resources\Libraries\entt\config\config.h" />
+    <ClInclude Include="Resources\Libraries\entt\config\macro.h" />
+    <ClInclude Include="Resources\Libraries\entt\config\version.h" />
+    <ClInclude Include="Resources\Libraries\entt\container\dense_map.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\container\dense_set.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\container\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\container\table.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\algorithm.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\any.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\attribute.h" />
+    <ClInclude Include="Resources\Libraries\entt\core\bit.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\compressed_pair.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\enum.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\family.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\hashed_string.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\ident.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\iterator.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\memory.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\monostate.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\ranges.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\tuple.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\type_info.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\type_traits.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\core\utility.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\component.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\entity.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\group.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\handle.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\helper.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\mixin.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\observer.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\organizer.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\ranges.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\registry.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\runtime_view.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\snapshot.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\storage.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entity\view.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\entt.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\graph\adjacency_matrix.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\graph\dot.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\graph\flow.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\graph\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\locator\locator.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\adl_pointer.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\container.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\context.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\factory.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\meta.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\node.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\pointer.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\policy.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\range.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\resolve.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\template.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\type_traits.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\meta\utility.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\poly\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\poly\poly.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\process\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\process\process.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\process\scheduler.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\resource\cache.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\resource\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\resource\loader.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\resource\resource.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\signal\delegate.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\signal\emitter.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\signal\fwd.hpp" />
+    <ClInclude Include="Resources\Libraries\entt\signal\sigh.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_all.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_flags.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_iostream.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_switch.hpp" />
+    <ClInclude Include="Resources\Libraries\magic_enum\magic_enum_utility.hpp" />
+    <ClInclude Include="Resources\Libraries\spdlog\async.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\async_logger-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\async_logger.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\cfg\argv.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\cfg\env.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\cfg\helpers.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\common-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\common.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\backtracer.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\circular_q.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\console_globals.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\file_helper.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\log_msg.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\null_mutex.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\os-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\os.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\registry-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\registry.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\tcp_client.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\thread_pool.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\udp_client-windows.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\udp_client.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\details\windows_include.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\args.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\os.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\std.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\bundled\xchar.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\chrono.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\compile.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\fmt.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\ostr.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\ranges.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\std.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fmt\xchar.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\formatter.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\fwd.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\logger-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\logger.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\mdc.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\pattern_formatter.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\callback_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\hourly_file_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\kafka_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\mongo_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\qt_sinks.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\udp_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\spdlog-inl.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\spdlog.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\stopwatch.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\tweakme.h" />
+    <ClInclude Include="Resources\Libraries\spdlog\version.h" />
+    <ClInclude Include="Resources\Libraries\stb\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EditorSP\src\Editor.cpp" />
+    <ClCompile Include="EngineSP\src\EngineSP.cpp" />
+    <ClCompile Include="GameSP\src\Game.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assimp\color4.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\color4.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\material.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\matrix3x3.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\matrix4x4.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\quaternion.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\SmoothingGroups.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\vector2.inl" />
+    <None Include="Resources\Libraries\assimp\include\assimp\vector3.inl" />
+    <None Include="Resources\assimp\material.inl" />
+    <None Include="Resources\assimp\matrix3x3.inl" />
+    <None Include="Resources\assimp\matrix4x4.inl" />
+    <None Include="Resources\assimp\quaternion.inl" />
+    <None Include="Resources\assimp\SmoothingGroups.inl" />
+    <None Include="Resources\assimp\vector2.inl" />
+    <None Include="Resources\assimp\vector3.inl" />
+    <None Include="Resources\Models\capy1.fbx" />
+    <None Include="Resources\Models\cube.fbx" />
+    <None Include="Resources\Models\Dragon.fbx" />
+    <None Include="Resources\Models\sphere.fbx" />
+    <None Include="Resources\Shaders\bloom.glsl" />
+    <None Include="Resources\Shaders\brdf.glsl" />
+    <None Include="Resources\Shaders\final.glsl" />
+    <None Include="Resources\Shaders\irradiance.glsl" />
+    <None Include="Resources\Shaders\pbr.glsl" />
+    <None Include="Resources\Shaders\prefiltered.glsl" />
+    <None Include="Resources\Shaders\shadow.glsl" />
+    <None Include="Resources\Shaders\skybox.glsl" />
+    <None Include="Resources\Shaders\skymap.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

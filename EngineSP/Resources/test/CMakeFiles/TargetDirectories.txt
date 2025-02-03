@@ -1,0 +1,13 @@
+D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/uninstall.dir
+D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/UpdateAssimpLibsDebugSymbolsAndDLLs.dir
+D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/INSTALL.dir
+D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/ALL_BUILD.dir
+D:/availability/3D Engine/EngineSP/Resources/test/CMakeFiles/ZERO_CHECK.dir
+D:/availability/3D Engine/EngineSP/Resources/test/contrib/zlib/CMakeFiles/zlibstatic.dir
+D:/availability/3D Engine/EngineSP/Resources/test/contrib/zlib/CMakeFiles/INSTALL.dir
+D:/availability/3D Engine/EngineSP/Resources/test/contrib/zlib/CMakeFiles/ALL_BUILD.dir
+D:/availability/3D Engine/EngineSP/Resources/test/code/CMakeFiles/assimp.dir
+D:/availability/3D Engine/EngineSP/Resources/test/code/CMakeFiles/INSTALL.dir
+D:/availability/3D Engine/EngineSP/Resources/test/test/CMakeFiles/unit.dir
+D:/availability/3D Engine/EngineSP/Resources/test/test/CMakeFiles/INSTALL.dir
+D:/availability/3D Engine/EngineSP/Resources/test/test/headercheck/CMakeFiles/INSTALL.dir
