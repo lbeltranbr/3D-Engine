@@ -21,11 +21,16 @@ out vec4 out_fragment;
 in vec2 uv;
 
 uniform sampler2D u_map;
+uniform sampler2D u_sky;
 uniform sampler2D u_bloom;
 
 void main() 
 {
-	vec3 result = texture(u_map, uv).rgb + texture(u_bloom, uv).rgb;
+	
+	vec4 skycolor = texture(u_sky, uv);
+	vec4 objectcolor = texture(u_map, uv);
+
+	vec3 result = mix(skycolor, objectcolor, objectcolor.a).rgb + texture(u_bloom, uv).rgb;
 
 	// sample color from map
 	result = pow(result, vec3(GAMMA));
@@ -37,10 +42,9 @@ void main()
 	result = pow(result, vec3(1.0 / max(GAMMA, EPS)));
 
 	// fragment color
-	out_fragment = vec4(result, 1.0); 
+	out_fragment = vec4(vec3(result), 1.0);
 
 	//to view shadowmap 
 	// float result = texture(u_map, uv).r;
-	//out_fragment = vec4(vec3(result), 1.0);
 }
 //FRAGMENT//

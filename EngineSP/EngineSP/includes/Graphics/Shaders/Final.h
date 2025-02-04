@@ -10,6 +10,7 @@ namespace SP
             Shader(filename)
         {
             u_Map = glGetUniformLocation(m_ShaderID, "u_map");
+            u_Sky = glGetUniformLocation(m_ShaderID, "u_sky");
             u_Bloom = glGetUniformLocation(m_ShaderID, "u_bloom");
             m_Quad = CreateQuad2D();
 
@@ -20,7 +21,7 @@ namespace SP
             #endif
         }
 
-        SP_INLINE void Render(uint32_t map, uint32_t bloom, bool useBloom)
+        SP_INLINE void Render(uint32_t map, uint32_t sky, uint32_t bloom, bool useBloom)
         {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
             glClearColor(0, 0, 0, 1);
@@ -47,6 +48,10 @@ namespace SP
 				glUniform1i(u_Bloom, 1);
             }
 
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, sky);
+			glUniform1i(u_Sky, 2);
+
             m_Quad->Draw(GL_TRIANGLES);
 
             #ifdef ENABLE_SPDLOG
@@ -61,6 +66,7 @@ namespace SP
     private:
         
         uint32_t u_Map = 0u;
+        uint32_t u_Sky = 0u;
         uint32_t u_Bloom = 0u;
         Quad2D m_Quad;
     };

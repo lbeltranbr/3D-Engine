@@ -45,7 +45,7 @@
     <ClInclude Include="EngineSP\includes\Graphics\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EngineSP\includes\Graphics\Buffers\Frame.h">
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\ObjectsBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineSP\includes\Graphics\Buffers\Mesh.h">
@@ -1159,6 +1159,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineSP\includes\Graphics\Shaders\Bloom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\FrameBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

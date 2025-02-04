@@ -146,8 +146,9 @@
     <ClInclude Include="EngineSP\includes\Common\Core.h" />
     <ClInclude Include="EngineSP\includes\Common\Event.h" />
     <ClInclude Include="EngineSP\includes\EngineSP.h" />
-    <ClInclude Include="EngineSP\includes\Graphics\Buffers\Frame.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\ObjectsBuffer.h" />
     <ClInclude Include="EngineSP\includes\Graphics\Buffers\Mesh.h" />
+    <ClInclude Include="EngineSP\includes\Graphics\Buffers\FrameBuffer.h" />
     <ClInclude Include="EngineSP\includes\Graphics\Buffers\Vertex.h" />
     <ClInclude Include="EngineSP\includes\Graphics\Models\Helper.h" />
     <ClInclude Include="EngineSP\includes\Graphics\Models\Model.h" />

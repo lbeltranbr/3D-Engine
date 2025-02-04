@@ -31,10 +31,12 @@ namespace SP {
 			auto roughness = std::make_shared<Texture2D>("Resources/Textures/Roughness.png", false, false);
 			auto roughness2 = std::make_shared<Texture2D>("Resources/Textures/RoughnessBrick.png", false, false);
 			auto ambientOcclusion = std::make_shared<Texture2D>("Resources/Textures/AoBrick.png", false, false);
+
 			auto cubeModel = std::make_shared<Model>("Resources/Models/cube.fbx");
 			auto sphereModel = std::make_shared<Model>("Resources/Models/sphere.fbx");
 			//auto swordModel = std::make_shared<Model>("Resources/Models/sword.fbx");
 			//auto plueModel = std::make_shared<Model>("Resources/Models/plue.fbx");
+
 			auto skymap = std::make_shared<Texture2D>("Resources/Textures/HDRs/Sky.hdr", true, true);
 
 			// create scene camera
@@ -46,14 +48,7 @@ namespace SP {
 			//lights
 			auto dlight1 = CreateLight(DIRECT, glm::vec3(0.0f), glm::vec3(0.0f, 5.0f, -5.0f), 0.1, glm::vec3(1.0f));
 			auto plight1 = CreateLight(POINT, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.0f), 20.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-
-			auto sphereplight = CreateEntt<Entity>();
-			auto& modl = sphereplight.Attach<ModelComponent>();
-			modl.Model = sphereModel;
-			modl.Material.Albedo = glm::vec3(1.0f, 0.0f, 0.0f);
-			modl.CastShadow = false;
-			sphereplight.Attach<TransformComponent>().Transform.Scale = glm::vec3(0.1f);
-			sphereplight.Get<TransformComponent>().Transform.Translate = glm::vec3(5.0f, 0.0f, -3.0f);
+			auto sphereplight = CreateSphere(sphereModel, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.1f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.0f, 0.0f), false);
 	
 
 			//auto plue = CreateEntt<Entity>();
@@ -66,13 +61,8 @@ namespace SP {
 			//plue.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, -0.5f, -3.0f);
 			////plue.Get<TransformComponent>().Transform.Scale = glm::vec3(0.5);
 
-			auto sphere = CreateEntt<Entity>();
-			auto& mod = sphere.Attach<ModelComponent>();
-			mod.Model = sphereModel;
-			mod.Material.Albedo = glm::vec3(0.8f, 0.1f, 0.8f);
-			mod.Material.Emissive = glm::vec3(1.0f);
-			sphere.Attach<TransformComponent>().Transform.Translate = glm::vec3(0.0f,1.0f,-5.0f);
-			//sphere.Get<TransformComponent>().Transform.Scale = glm::vec3(1.0f);
+			auto sphere = CreateSphere(sphereModel, glm::vec3(0.0f, 1.0f, -5.0f), glm::vec3(1.0f), glm::vec3(0.8f, 0.1f, 0.8f), glm::vec3(1.0f), true);
+			
 
 			auto cube = CreateEntt<Entity>();
 			auto& mod1 = cube.Attach<ModelComponent>();
@@ -192,6 +182,25 @@ namespace SP {
 			 }
 			 SP_INLINE Entity CreateEntity() {
 
+			 }
+			 SP_INLINE Entity CreateDefaultSphere(Model3D sphereModel) {
+
+				 Entity sphere = CreateEntt<Entity>();
+				 sphere.Attach<ModelComponent>().Model = sphereModel;
+				 return sphere;
+
+			 }
+			 SP_INLINE Entity CreateSphere(Model3D sphereModel, glm::vec3 position, glm::vec3 scale, glm::vec3 albedo, glm::vec3 emissive, bool shadowCast) {
+
+				 Entity sphere = CreateEntt<Entity>();
+				 auto& mod = sphere.Attach<ModelComponent>();
+				 mod.Model = sphereModel;
+				 mod.Material.Albedo = albedo;
+				 mod.Material.Emissive = emissive;
+				 mod.CastShadow = shadowCast;
+				 sphere.Attach<TransformComponent>().Transform.Scale = scale;
+				 sphere.Get<TransformComponent>().Transform.Translate = position;
+				 return sphere;
 			 }
 			 SP_INLINE Entity CreateLight(LightType type, glm::vec3 position, glm::vec3 rotation, float intensity, glm::vec3 radiance) {
 				 

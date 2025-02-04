@@ -4,9 +4,9 @@
 
 namespace SP
 {
-    struct FrameBuffer
+    struct ObjectsBuffer
     {
-        SP_INLINE FrameBuffer(int32_t width, int32_t height) :
+        SP_INLINE ObjectsBuffer(int32_t width, int32_t height) :
             m_Width(width), m_Height(height), m_Samples(8)
         {
             glGenFramebuffers(1, &m_BufferID);
@@ -37,7 +37,7 @@ namespace SP
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
         }
 
-        SP_INLINE ~FrameBuffer()
+        SP_INLINE ~ObjectsBuffer()
         {
             glDeleteTextures(1, &m_Color);
             glDeleteTextures(1, &m_Brightness);
@@ -104,17 +104,17 @@ namespace SP
         {
             glBindFramebuffer(GL_FRAMEBUFFER, m_BufferID);
             glViewport(0, 0, m_Width, m_Height);
-            glClearColor(0, 0, 0, 1);
+            glClearColor(0, 0, 0, 0);
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glEnable(GL_DEPTH_TEST);
-            glEnable(GL_SAMPLES);
+            glEnable(GL_MULTISAMPLE);
             glCullFace(GL_BACK);
         }
 
         SP_INLINE void End()
         {
-            glDisable(GL_SAMPLES);
+            glDisable(GL_MULTISAMPLE);
             glDisable(GL_DEPTH_TEST);
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
         }

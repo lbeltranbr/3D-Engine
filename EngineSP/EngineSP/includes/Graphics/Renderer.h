@@ -1,5 +1,6 @@
 #pragma once
-#include "Buffers/Frame.h"
+#include "Buffers/ObjectsBuffer.h"
+#include "Buffers/FrameBuffer.h"
 #include "Shaders/Final.h"
 #include "Shaders/PBR.h"
 #include "Shaders/SkyBox.h"
@@ -32,7 +33,8 @@ namespace SP {
 
 			m_Final = std::make_unique<FinalShader>("Resources/Shaders/final.glsl");
 			m_Pbr = std::make_unique<PbrShader>("Resources/Shaders/pbr.glsl");
-			m_Frame = std::make_unique<FrameBuffer>(width, height);
+			m_SkyFrame = std::make_unique<FrameBuffer>(width, height);
+			m_ObjectFrame = std::make_unique<ObjectsBuffer>(width, height);
 
 			m_Skybox = std::make_unique<SkyboxShader>("Resources/Shaders/skybox.glsl");
 			m_SkyMap = std::make_unique<SkyMapShader>("Resources/Shaders/skymap.glsl");
@@ -78,7 +80,7 @@ namespace SP {
 						spdlog::info("RENDERER: SetCamera()");
 				#endif
 			#endif
-			float aspect = m_Frame->Ratio();
+						float aspect = m_ObjectFrame->Ratio();
 
 			m_Skybox->Bind();
 			m_Skybox->SetCamera(camera, transform, aspect);
@@ -128,15 +130,18 @@ namespace SP {
 			
 			m_Skybox->Bind();
 			m_Skybox->Draw(m_SkyboxMesh, sky.CubeMap, transform);
+			m_SkyFrame->End();
 
+			m_ObjectFrame->Begin();
 			m_Pbr->Bind();
 			m_Pbr->SetEnvMaps(sky.IrradMap, sky.PrefilMap, sky.BrdfMap, m_Shadow->GetDepthMap());
 
+			
 		}
 		//DRAW
 		SP_INLINE void Draw(Model3D& model, PbrMaterial& material, Transform3D& transform)
 		{
-			//m_Pbr->Bind();//not needed for now, be careful when you add new shaders
+			m_Pbr->Bind();//not needed for now, be careful when you add new shaders
 			// Render object
 			m_Pbr->Draw(model, material, transform);
 
@@ -155,7 +160,7 @@ namespace SP {
 			#endif
 		#endif
 
-			m_Frame->Resize(width, height);
+				m_ObjectFrame->Resize(width, height);
 		}
 		//FRAME
 		SP_INLINE uint32_t GetFrame()
@@ -167,7 +172,7 @@ namespace SP {
 			#endif
 		#endif
 
-			return m_Frame->GetTexture();
+			return m_ObjectFrame->GetTexture();
 		}
 		SP_INLINE void NewFrame()
 		{
@@ -178,14 +183,14 @@ namespace SP {
 					spdlog::info("RENDERER: New Frame");
 				#endif
 			#endif
-			m_Frame->Begin(); //Bind FrameBuffer and clear it
+			m_SkyFrame->Begin(); //Bind FrameBuffer and clear it
 			//m_Pbr->Bind(); //not here because we use skybox first
 
 		}
 		SP_INLINE void EndFrame()
 		{
 			
-			m_Frame->End(); //we close frame buffer here
+			m_ObjectFrame->End(); //we close frame buffer here
 			#ifdef ENABLE_SPDLOG
 				#if ENABLE_COMMENTS == 1
 					spdlog::info("RENDERER: End Frame");
@@ -193,18 +198,18 @@ namespace SP {
 			#endif
 
 			m_Bloom->Bind();
-			m_Bloom->Compute(m_Frame->GetBrightnessMap(), 10);
+			m_Bloom->Compute(m_ObjectFrame->GetBrightnessMap(), 10);
 
 		}
 		SP_INLINE void ShowFrame()
 		{
-			glViewport(0, 0, m_Frame->Width(), m_Frame->Height());
+			glViewport(0, 0, m_ObjectFrame->Width(), m_ObjectFrame->Height());
 			#ifdef ENABLE_SPDLOG
 				#if ENABLE_COMMENTS == 1
 					spdlog::info("RENDERER: ShowFrame()");
 				#endif
 			#endif
-			m_Final->Render(m_Frame->GetTexture(), m_Bloom->GetMap(), true);
+			m_Final->Render(m_ObjectFrame->GetTexture(),m_SkyFrame->GetTexture(), m_Bloom->GetMap(), true);
 			//m_Final->Render(m_Shadow->GetDepthMap(), m_Bloom->GetMap(), false);
 			//m_Final->Render(m_Shadow->GetDepthMap());
 		}
@@ -232,10 +237,11 @@ namespace SP {
 
 	private:
 
-		std::unique_ptr<PbrShader> m_Pbr;
 		std::unique_ptr<FinalShader> m_Final;
-		std::unique_ptr<FrameBuffer> m_Frame;
+		std::unique_ptr<ObjectsBuffer> m_ObjectFrame;
+		std::unique_ptr<FrameBuffer> m_SkyFrame;
 
+		std::unique_ptr<PbrShader> m_Pbr;
 		std::unique_ptr<SkyboxShader> m_Skybox;
 		std::unique_ptr<SkyMapShader> m_SkyMap;
 		std::unique_ptr<IrradianceShader> m_Irrad;
