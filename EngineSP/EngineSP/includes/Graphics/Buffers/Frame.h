@@ -1,6 +1,7 @@
 #pragma once
 #include "Common/Core.h"
 
+
 namespace SP
 {
     struct FrameBuffer
@@ -46,26 +47,26 @@ namespace SP
 
         SP_INLINE void Resize(int32_t width, int32_t height)
         {
-            // update size     
-            m_Width = width;
-            m_Height = height;
+			// update size     
+			m_Width = width;
+			m_Height = height;
 
-            // Resize Color Buffer
-            glBindTexture(GL_TEXTURE_2D, m_Color);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
-                m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+			// Resize Color Buffer
+			glBindTexture(GL_TEXTURE_2D, m_Color);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
+				m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
 
-            // Resize Brightness Buffer
-            glBindTexture(GL_TEXTURE_2D, m_Brightness);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
-                m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+			// Resize Brightness Buffer
+			glBindTexture(GL_TEXTURE_2D, m_Brightness);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
+				m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
 
-            // Resize Render Buffer
-            glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
+			// Resize Render Buffer
+			glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_Width, m_Height);
 
-            glBindRenderbuffer(GL_RENDERBUFFER, 0);
-            glBindTexture(GL_TEXTURE_2D, 0);
+			glBindRenderbuffer(GL_RENDERBUFFER, 0);
+			glBindTexture(GL_TEXTURE_2D, 0);
             
         }
 
@@ -78,6 +79,11 @@ namespace SP
         {
             return m_Brightness;
         }
+
+		SP_INLINE uint32_t GetBufferID()
+		{
+			return m_BufferID;
+		}
 
         SP_INLINE int32_t Height()
         {
@@ -142,10 +148,10 @@ namespace SP
 
         SP_INLINE void CreateRenderBuffer()
         {
-            glGenRenderbuffers(1, &m_Render);
-            glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
-			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
-			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_Render);
+			glGenRenderbuffers(1, &m_Render);
+			glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_Width, m_Height);
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_Render);
         }
 
     private:

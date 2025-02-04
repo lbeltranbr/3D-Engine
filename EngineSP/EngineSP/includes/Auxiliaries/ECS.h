@@ -42,6 +42,7 @@ namespace SP
         SP_INLINE ModelComponent() = default;
         Model3D Model;
         PbrMaterial Material;
+		bool CastShadow = true;
     };
     // mesh component
     struct MeshComponent
@@ -143,5 +144,6 @@ namespace SP
     protected:
         EntityRegistry* m_Registry = nullptr;
         EntityID m_EnttID = NENTT;
+
     };
 }

@@ -31,53 +31,40 @@ namespace SP {
 			auto roughness = std::make_shared<Texture2D>("Resources/Textures/Roughness.png", false, false);
 			auto roughness2 = std::make_shared<Texture2D>("Resources/Textures/RoughnessBrick.png", false, false);
 			auto ambientOcclusion = std::make_shared<Texture2D>("Resources/Textures/AoBrick.png", false, false);
-
-
 			auto cubeModel = std::make_shared<Model>("Resources/Models/cube.fbx");
 			auto sphereModel = std::make_shared<Model>("Resources/Models/sphere.fbx");
 			//auto swordModel = std::make_shared<Model>("Resources/Models/sword.fbx");
-			auto plueModel = std::make_shared<Model>("Resources/Models/plue.fbx");
-
+			//auto plueModel = std::make_shared<Model>("Resources/Models/plue.fbx");
 			auto skymap = std::make_shared<Texture2D>("Resources/Textures/HDRs/Sky.hdr", true, true);
 
 			// create scene camera
-			auto camera = CreateEntt<Entity>();
-			camera.Attach<TransformComponent>().Transform.Translate.z = 5.0f;
-			camera.Attach<CameraComponent>();
-
-			// create scene camera
-			auto camera2 = CreateEntt<Entity>();
-			camera2.Attach<TransformComponent>().Transform.Translate.z = camera.Get<TransformComponent>().Transform.Translate.z;
-			camera2.Attach<CameraComponent>().Camera.RenderDepth = true;
+			auto camera = CreateCamera(glm::vec3(0.0f, 0.0f, 5.0f));
 
 			// skybox entity
-			auto skybox = CreateEntt<Entity>();
-			skybox.Attach<TransformComponent>();
-			skybox.Attach<SkyboxComponent>();
+			auto skybox = CreateSkybox();
 
-			//auto dlight1 = CreateEntt<Entity>();
-			//dlight1.Attach<DirectLightComponent>().Light.Radiance = glm::vec3(1.0f, 1.0f, 1.0f);//white
-			//dlight1.Get< DirectLightComponent>().Light.Intensity = 20.0f;
-			//dlight1.Attach<TransformComponent>().Transform.Rotation = glm::vec3(90.0f, 0.0f, 0.0f);
+			//lights
+			auto dlight1 = CreateLight(DIRECT, glm::vec3(0.0f), glm::vec3(0.0f, 5.0f, -5.0f), 0.1, glm::vec3(1.0f));
+			auto plight1 = CreateLight(POINT, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.0f), 20.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
-			auto dlight1 = CreateEntt<Entity>();
-			dlight1.Attach<DirectLightComponent>().Light.Intensity = 0.1f;
-			dlight1.Attach<TransformComponent>().Transform.Rotation = glm::vec3(0.0f, 5.0f, -5.0f);
+			auto sphereplight = CreateEntt<Entity>();
+			auto& modl = sphereplight.Attach<ModelComponent>();
+			modl.Model = sphereModel;
+			modl.Material.Albedo = glm::vec3(1.0f, 0.0f, 0.0f);
+			modl.CastShadow = false;
+			sphereplight.Attach<TransformComponent>().Transform.Scale = glm::vec3(0.1f);
+			sphereplight.Get<TransformComponent>().Transform.Translate = glm::vec3(5.0f, 0.0f, -3.0f);
+	
 
-			//auto plight1 = CreateEntt<Entity>();
-			//plight1.Attach<PointLightComponent>().Light.Radiance = glm::vec3(1.0f, 0.0f, 0.0f);//red
-			//plight1.Get<PointLightComponent>().Light.Intensity = 10.0f;
-			//plight1.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, 1.0f, -2.0f);
-
-			auto plue = CreateEntt<Entity>();
-			auto& modp = plue.Attach<ModelComponent>();
-			modp.Model = plueModel;
-			modp.Material.Albedo = glm::vec3(1.0f, 1.0f, 1.0f);
-			modp.Material.Roughness = 0.9f;
-			//modp.Material.Metalness = 0.1f;
-			plue.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
-			plue.Get<TransformComponent>().Transform.Translate = glm::vec3(2.0f, -0.5f, -3.0f);
-			//plue.Get<TransformComponent>().Transform.Scale = glm::vec3(0.5);
+			//auto plue = CreateEntt<Entity>();
+			//auto& modp = plue.Attach<ModelComponent>();
+			//modp.Model = plueModel;
+			//modp.Material.Albedo = glm::vec3(1.0f, 1.0f, 1.0f);
+			//modp.Material.Roughness = 0.9f;
+			////modp.Material.Metalness = 0.1f;
+			////plue.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
+			//plue.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, -0.5f, -3.0f);
+			////plue.Get<TransformComponent>().Transform.Scale = glm::vec3(0.5);
 
 			auto sphere = CreateEntt<Entity>();
 			auto& mod = sphere.Attach<ModelComponent>();
@@ -85,7 +72,7 @@ namespace SP {
 			mod.Material.Albedo = glm::vec3(0.8f, 0.1f, 0.8f);
 			mod.Material.Emissive = glm::vec3(1.0f);
 			sphere.Attach<TransformComponent>().Transform.Translate = glm::vec3(0.0f,1.0f,-5.0f);
-			sphere.Get<TransformComponent>().Transform.Scale = glm::vec3(1.0f);
+			//sphere.Get<TransformComponent>().Transform.Scale = glm::vec3(1.0f);
 
 			auto cube = CreateEntt<Entity>();
 			auto& mod1 = cube.Attach<ModelComponent>();
@@ -96,8 +83,19 @@ namespace SP {
 			mod1.Material.OcclusionMap = ambientOcclusion;
 			mod1.Material.Metalness = 0.0f;
 			cube.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
-			cube.Get<TransformComponent>().Transform.Translate = glm::vec3(0.0f, -2.0f, -5.0f);
 			cube.Get<TransformComponent>().Transform.Scale = glm::vec3(20.0f, 20.0f, 0.5f);
+			cube.Get<TransformComponent>().Transform.Translate = glm::vec3(0.0f, -2.0f, -5.0f);
+
+			auto cube2 = CreateEntt<Entity>();
+			auto& mod2 = cube2.Attach<ModelComponent>();
+			mod2.Model = cubeModel;
+			mod2.Material.AlbedoMap = albedo2;
+			//mod2.Material.NormalMap = normal2;
+			mod2.Material.RoughnessMap = roughness2;
+			mod2.Material.OcclusionMap = ambientOcclusion;
+			mod2.Material.Metalness = 0.0f;
+			cube2.Attach<TransformComponent>().Transform.Scale = glm::vec3(0.5f);
+			cube2.Get<TransformComponent>().Transform.Translate = glm::vec3(4.0f, 1.0f, -3.0f);
 
 			// generate enviroment maps
 			EnttView<Entity, SkyboxComponent>([this, &skymap](auto entity, auto& comp)
@@ -183,6 +181,58 @@ namespace SP {
 			}
 		}
 		 private:
+
+			 SP_INLINE Entity CreateCamera(glm::vec3 position) {
+				 
+				 Entity camera = CreateEntt<Entity>();
+				 camera.Attach<TransformComponent>().Transform.Translate = position;
+				 camera.Attach<CameraComponent>();
+				
+				 return camera;
+			 }
+			 SP_INLINE Entity CreateEntity() {
+
+			 }
+			 SP_INLINE Entity CreateLight(LightType type, glm::vec3 position, glm::vec3 rotation, float intensity, glm::vec3 radiance) {
+				 
+				 Entity light = CreateEntt<Entity>();
+
+				 if (type == DIRECT) {
+
+					 light.Attach<TransformComponent>().Transform.Rotation = rotation;
+					 light.Attach<DirectLightComponent>().Light.Intensity = intensity;
+					 light.Get<DirectLightComponent>().Light.Radiance = radiance;
+					 return light;
+
+				 }
+				 if (type == POINT) {
+
+					 light.Attach<TransformComponent>().Transform.Rotation = rotation;
+					 light.Get<TransformComponent>().Transform.Translate = position;
+					 light.Attach<PointLightComponent>().Light.Intensity = intensity;
+					 light.Get<PointLightComponent>().Light.Radiance = radiance;
+
+					 return light;
+
+				 }
+				 if (type == SPOT) {
+
+					 light.Attach<TransformComponent>().Transform.Rotation = rotation;
+					 light.Get<TransformComponent>().Transform.Translate = position;
+					 light.Attach<SpotLightComponent>().Light.Intensity = intensity;
+					 light.Get<SpotLightComponent>().Light.Radiance = radiance;
+
+					 return light;
+
+				 }
+			 }
+			 SP_INLINE Entity CreateSkybox() {
+
+				 Entity skybox = CreateEntt<Entity>();
+				 skybox.Attach<TransformComponent>();
+				 skybox.Attach<SkyboxComponent>();
+				 return skybox;
+			 }
 			 SP_INLINE void RenderSceneDepth()
 			 {
 				 EnttView<Entity, DirectLightComponent>([this](auto light, auto&)
@@ -210,8 +260,11 @@ namespace SP {
 						 // render depth 
 						 EnttView<Entity, ModelComponent>([this, &lightDir](auto entity, auto& comp)
 							 {
-								 auto& transform = entity.template Get<TransformComponent>().Transform;
-								 m_Context->Renderer->DrawDepth(comp.Model, transform);
+								 
+								 if (comp.CastShadow) {
+									 auto& transform = entity.template Get<TransformComponent>().Transform;
+									 m_Context->Renderer->DrawDepth(comp.Model, transform);
+								 }
 
 							/*	 float delta = 0.0166666f;
 								 if (4 == (uint32_t)entity.ID())
@@ -231,9 +284,10 @@ namespace SP {
 								 }*/
 							 });
 
-						 // ffinalize frame
+						 // finalize frame
 						 m_Context->Renderer->EndShadowPass();
 					 });
 			 }
+			
 	};
 }

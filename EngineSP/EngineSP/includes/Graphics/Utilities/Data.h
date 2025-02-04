@@ -112,4 +112,10 @@ namespace SP
         bool RenderDepth = false;
     };
 
+    enum LightType {
+        POINT,
+        DIRECT,
+        SPOT
+    };
+
 }
