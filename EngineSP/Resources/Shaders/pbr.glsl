@@ -330,7 +330,7 @@ void main(){
     if(u_material.UseNormalMap) 
     { 
         // convert from [0,1] range to [-1, 1] range
-        N = 2.0 * texture(u_material.NormalMap, vertex.uv).rgb - 1.0;
+        N = 2.0 * texture(u_material.NormalMap, vertex.uv).rgb - 1.0; //tangent normal
         N = normalize(vertex.TBN * N); 
     }
 

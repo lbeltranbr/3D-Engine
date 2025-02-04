@@ -47,8 +47,12 @@ namespace SP {
 
 			//lights
 			auto dlight1 = CreateLight(DIRECT, glm::vec3(0.0f), glm::vec3(0.0f, 5.0f, -5.0f), 0.1, glm::vec3(1.0f));
+
 			auto plight1 = CreateLight(POINT, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.0f), 20.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			auto splight1 = CreateLight(SPOT, glm::vec3(-4.0f, 1.0f, -3.0f), glm::vec3(0.0f, -90.0f, 0.0f), 20.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
 			auto sphereplight = CreateSphere(sphereModel, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.1f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.0f, 0.0f), false);
+			auto spheresplight = CreateSphere(sphereModel, glm::vec3(-4.0f, 1.0f, -3.0f), glm::vec3(0.1f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.5f, 0.0f), false);
 	
 
 			//auto plue = CreateEntt<Entity>();
@@ -64,28 +68,10 @@ namespace SP {
 			auto sphere = CreateSphere(sphereModel, glm::vec3(0.0f, 1.0f, -5.0f), glm::vec3(1.0f), glm::vec3(0.8f, 0.1f, 0.8f), glm::vec3(1.0f), true);
 			
 
-			auto cube = CreateEntt<Entity>();
-			auto& mod1 = cube.Attach<ModelComponent>();
-			mod1.Model = cubeModel;
-			mod1.Material.AlbedoMap = albedo2;
-			mod1.Material.NormalMap = normal2;
-			mod1.Material.RoughnessMap = roughness2;
-			mod1.Material.OcclusionMap = ambientOcclusion;
-			mod1.Material.Metalness = 0.0f;
-			cube.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
-			cube.Get<TransformComponent>().Transform.Scale = glm::vec3(20.0f, 20.0f, 0.5f);
-			cube.Get<TransformComponent>().Transform.Translate = glm::vec3(0.0f, -2.0f, -5.0f);
+			auto cube = CreateBox(cubeModel, glm::vec3(0.0f, -2.0f, -5.0f), glm::vec3(-90.0f, 0.0f, 0.0f), glm::vec3(20.0f, 20.0f, 0.5f), albedo2, normal2, roughness2, ambientOcclusion, true);
+			auto cube2 = CreateBox(cubeModel, glm::vec3(4.0f, 1.0f, -3.0f), glm::vec3(0.0f), glm::vec3(0.5f), albedo2, nullptr, roughness2, ambientOcclusion, true);
 
-			auto cube2 = CreateEntt<Entity>();
-			auto& mod2 = cube2.Attach<ModelComponent>();
-			mod2.Model = cubeModel;
-			mod2.Material.AlbedoMap = albedo2;
-			//mod2.Material.NormalMap = normal2;
-			mod2.Material.RoughnessMap = roughness2;
-			mod2.Material.OcclusionMap = ambientOcclusion;
-			mod2.Material.Metalness = 0.0f;
-			cube2.Attach<TransformComponent>().Transform.Scale = glm::vec3(0.5f);
-			cube2.Get<TransformComponent>().Transform.Translate = glm::vec3(4.0f, 1.0f, -3.0f);
+
 
 			// generate enviroment maps
 			EnttView<Entity, SkyboxComponent>([this, &skymap](auto entity, auto& comp)
@@ -142,6 +128,7 @@ namespace SP {
 						auto& transform = entity.template Get<TransformComponent>().Transform;
 						m_Context->Renderer->SetSpotLight(comp.Light, transform, lightCounter);
 						lightCounter++;
+
 					});
 				// set number of direct lights
 				m_Context->Renderer->SetSpotLightCount(lightCounter);
@@ -180,7 +167,46 @@ namespace SP {
 				
 				 return camera;
 			 }
-			 SP_INLINE Entity CreateEntity() {
+			 SP_INLINE Entity CreateDefaultBox(Model3D cubeModel) {
+
+				 Entity cube = CreateEntt<Entity>();
+				 auto& mod1 = cube.Attach<ModelComponent>();
+				 mod1.Model = cubeModel;
+			
+				 cube.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
+				 cube.Get<TransformComponent>().Transform.Scale = glm::vec3(20.0f, 20.0f, 0.5f);
+				 cube.Get<TransformComponent>().Transform.Translate = glm::vec3(0.0f, -2.0f, -5.0f);
+				 return cube;
+
+			 }
+			 SP_INLINE Entity CreateBox(Model3D cubeModel, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale, glm::vec3 albedo, float roughness, float metalness, bool shadowCast) {
+
+				 Entity cube = CreateEntt<Entity>();
+				 auto& mod1 = cube.Attach<ModelComponent>();
+				 mod1.Model = cubeModel;
+				 mod1.Material.Albedo = albedo;
+				 mod1.Material.Roughness = roughness;
+				 cube.Attach<TransformComponent>().Transform.Rotation = rotation;
+				 cube.Get<TransformComponent>().Transform.Scale = scale;
+				 cube.Get<TransformComponent>().Transform.Translate = position;
+				 return cube;
+
+
+			 }
+			 SP_INLINE Entity CreateBox(Model3D cubeModel, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale, Texture albedo, Texture normal, Texture roughness, Texture ambientOcclusion, bool shadowCast) {
+
+				 Entity cube = CreateEntt<Entity>();
+				 auto& mod1 = cube.Attach<ModelComponent>();
+				 mod1.Model = cubeModel;
+				 mod1.Material.AlbedoMap = albedo;
+				 mod1.Material.NormalMap = normal;
+				 mod1.Material.RoughnessMap = roughness;
+				 mod1.Material.OcclusionMap = ambientOcclusion;
+				 cube.Attach<TransformComponent>().Transform.Rotation = rotation;
+				 cube.Get<TransformComponent>().Transform.Scale = scale;
+				 cube.Get<TransformComponent>().Transform.Translate = position;
+				 return cube;
+
 
 			 }
 			 SP_INLINE Entity CreateDefaultSphere(Model3D sphereModel) {
