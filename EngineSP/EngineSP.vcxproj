@@ -107,15 +107,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;ENABLE_COMMENTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries;$(MSBuildProjectDirectory)\Resources\Libraries\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;D:\availability\3D Engine\EngineSP\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries;$(MSBuildProjectDirectory)\Resources\Libraries\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;$(MSBuildProjectDirectory)\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\sol;$(MSBuildProjectDirectory)\libs\lua;$(MSBuildProjectDirectory)\libs\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>-DENABLE_COMMENTS=0 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mtd.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;$(MSBuildProjectDirectory)\libs\lua;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mtd.lib;zlibstaticd.lib;lua54.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\assimp\include\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\include;$(MSBuildProjectDirectory)\libs\glew-2.1.0\include;$(MSBuildProjectDirectory)\EngineSP\includes;$(MSBuildProjectDirectory)\Resources\Libraries\spdlog;$(MSBuildProjectDirectory)\Resources;$(MSBuildProjectDirectory)\libs\glm;$(MSBuildProjectDirectory)\Resources\Libraries\entt;$(MSBuildProjectDirectory)\Resources\Libraries\assimp\include\assimp;$(MSBuildProjectDirectory)\Resources\Libraries\stb;$(MSBuildProjectDirectory)\Resources\Libraries\magic_enum;$(MSBuildProjectDirectory)\libs\lua;$(MSBuildProjectDirectory)\Resources\Libraries\sol;$(MSBuildProjectDirectory)\libs\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -134,8 +134,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mt.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MSBuildProjectDirectory)\libs\glew-2.1.0\lib\Release\x64;$(MSBuildProjectDirectory)\libs\glew-2.1.0\bin\Release\x64;$(MSBuildProjectDirectory)\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(MSBuildProjectDirectory)\libs\assimp\lib;$(MSBuildProjectDirectory)\libs\lua;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;glfw3_mt.lib;glew32S.lib;opengl32.lib;assimp-vc143-mt.lib;zlibstaticd.lib;lua54.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

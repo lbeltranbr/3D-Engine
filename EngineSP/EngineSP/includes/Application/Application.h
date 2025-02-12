@@ -51,9 +51,9 @@ namespace SP {
 			auto plight1 = CreateLight(POINT, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.0f), 20.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			auto splight1 = CreateLight(SPOT, glm::vec3(-4.0f, 1.0f, -3.0f), glm::vec3(0.0f, -90.0f, 0.0f), 20.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
+			//just a helper to identify the lights
 			auto sphereplight = CreateSphere(sphereModel, glm::vec3(5.0f, 0.0f, -3.0f), glm::vec3(0.1f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.0f, 0.0f), false);
 			auto spheresplight = CreateSphere(sphereModel, glm::vec3(-4.0f, 1.0f, -3.0f), glm::vec3(0.1f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.5f, 0.0f), false);
-	
 
 			//auto plue = CreateEntt<Entity>();
 			//auto& modp = plue.Attach<ModelComponent>();
@@ -65,15 +65,12 @@ namespace SP {
 			//plue.Attach<TransformComponent>().Transform.Translate = glm::vec3(2.0f, -0.5f, -3.0f);
 			////plue.Get<TransformComponent>().Transform.Scale = glm::vec3(0.5);
 
+			//entities
 			auto sphere = CreateSphere(sphereModel, glm::vec3(0.0f, 1.0f, -5.0f), glm::vec3(1.0f), glm::vec3(0.8f, 0.1f, 0.8f), glm::vec3(1.0f), true);
-			
-
 			auto cube = CreateBox(cubeModel, glm::vec3(0.0f, -2.0f, -5.0f), glm::vec3(-90.0f, 0.0f, 0.0f), glm::vec3(20.0f, 20.0f, 0.5f), albedo2, normal2, roughness2, ambientOcclusion, true);
 			auto cube2 = CreateBox(cubeModel, glm::vec3(4.0f, 1.0f, -3.0f), glm::vec3(0.0f), glm::vec3(0.5f), albedo2, nullptr, roughness2, ambientOcclusion, true);
 
-
-
-			// generate enviroment maps
+			// generate environment maps
 			EnttView<Entity, SkyboxComponent>([this, &skymap](auto entity, auto& comp)
 				{
 					#ifdef ENABLE_SPDLOG
@@ -172,10 +169,7 @@ namespace SP {
 				 Entity cube = CreateEntt<Entity>();
 				 auto& mod1 = cube.Attach<ModelComponent>();
 				 mod1.Model = cubeModel;
-			
-				 cube.Attach<TransformComponent>().Transform.Rotation = glm::vec3(-90.0f, 0.0f, 0.0f);
-				 cube.Get<TransformComponent>().Transform.Scale = glm::vec3(20.0f, 20.0f, 0.5f);
-				 cube.Get<TransformComponent>().Transform.Translate = glm::vec3(0.0f, -2.0f, -5.0f);
+				 cube.Attach<TransformComponent>();
 				 return cube;
 
 			 }

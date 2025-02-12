@@ -1,0 +1,2 @@
+C:/Users/Laura/Documents/GitHub/3D Engine/EngineSP/Resources/Libraries/CMakeFiles/ALL_BUILD.dir
+C:/Users/Laura/Documents/GitHub/3D Engine/EngineSP/Resources/Libraries/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{0F03716A-C2C8-35C5-8DFD-4622EEEC60F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C033A724-2B03-3C51-B3F9-CAD4762FC7CB} = {C033A724-2B03-3C51-B3F9-CAD4762FC7CB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{C033A724-2B03-3C51-B3F9-CAD4762FC7CB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F03716A-C2C8-35C5-8DFD-4622EEEC60F8}.Debug|x64.ActiveCfg = Debug|x64
+		{0F03716A-C2C8-35C5-8DFD-4622EEEC60F8}.Release|x64.ActiveCfg = Release|x64
+		{C033A724-2B03-3C51-B3F9-CAD4762FC7CB}.Debug|x64.ActiveCfg = Debug|x64
+		{C033A724-2B03-3C51-B3F9-CAD4762FC7CB}.Debug|x64.Build.0 = Debug|x64
+		{C033A724-2B03-3C51-B3F9-CAD4762FC7CB}.Release|x64.ActiveCfg = Release|x64
+		{C033A724-2B03-3C51-B3F9-CAD4762FC7CB}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CE4AC0C-B160-35FC-9B2E-10F4E09B6914}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
