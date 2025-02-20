@@ -10,6 +10,7 @@
 #include "Shaders/BRDF.h"
 #include "Shaders/Shadow.h"
 #include "Shaders/Bloom.h"
+#include "Shaders/GBuffer.h"
 
 #include <iostream>
 
@@ -31,16 +32,20 @@ namespace SP {
 				exit(EXIT_FAILURE);
 			}
 
-			m_Final = std::make_unique<FinalShader>("Resources/Shaders/final.glsl");
-			m_Pbr = std::make_unique<PbrShader>("Resources/Shaders/pbr.glsl");
+			
 			m_SkyFrame = std::make_unique<FrameBuffer>(width, height);
 			m_ObjectFrame = std::make_unique<ObjectsBuffer>(width, height);
+
+			m_Final = std::make_unique<FinalShader>("Resources/Shaders/final.glsl");
+			m_GBuffer = std::make_unique<GBufferShader>("Resources/Shaders/gbuffer.glsl");
 
 			m_Skybox = std::make_unique<SkyboxShader>("Resources/Shaders/skybox.glsl");
 			m_SkyMap = std::make_unique<SkyMapShader>("Resources/Shaders/skymap.glsl");
 			m_Irrad = std::make_unique<IrradianceShader>("Resources/Shaders/irradiance.glsl");
 			m_Prefil = std::make_unique<PrefilteredShader>("Resources/Shaders/prefiltered.glsl");
 			m_Brdf = std::make_unique<BrdfShader>("Resources/Shaders/brdf.glsl");
+
+			m_Pbr = std::make_unique<PbrShader>("Resources/Shaders/pbr.glsl");
 			m_Shadow = std::make_unique<ShadowShader>("Resources/Shaders/shadow.glsl");
 
 			m_Bloom = std::make_unique<BloomShader>("Resources/Shaders/bloom.glsl", width, height);
@@ -135,7 +140,6 @@ namespace SP {
 			m_ObjectFrame->Begin();
 			m_Pbr->Bind();
 			m_Pbr->SetEnvMaps(sky.IrradMap, sky.PrefilMap, sky.BrdfMap, m_Shadow->GetDepthMap());
-
 			
 		}
 		//DRAW
@@ -161,6 +165,7 @@ namespace SP {
 		#endif
 
 				m_ObjectFrame->Resize(width, height);
+				m_SkyFrame->Resize(width, height);
 		}
 		//FRAME
 		SP_INLINE uint32_t GetFrame()
@@ -183,9 +188,9 @@ namespace SP {
 					spdlog::info("RENDERER: New Frame");
 				#endif
 			#endif
-			m_SkyFrame->Begin(); //Bind FrameBuffer and clear it
-			//m_Pbr->Bind(); //not here because we use skybox first
-
+			
+			//Bind FrameBuffer and clear it
+			m_SkyFrame->Begin(); 
 		}
 		SP_INLINE void EndFrame()
 		{
@@ -201,17 +206,35 @@ namespace SP {
 			m_Bloom->Compute(m_ObjectFrame->GetBrightnessMap(), 10);
 
 		}
-		SP_INLINE void ShowFrame()
+		SP_INLINE void ShowFrame(bool gBuffer)
 		{
-			glViewport(0, 0, m_ObjectFrame->Width(), m_ObjectFrame->Height());
-			#ifdef ENABLE_SPDLOG
-				#if ENABLE_COMMENTS == 1
-					spdlog::info("RENDERER: ShowFrame()");
-				#endif
-			#endif
-			m_Final->Render(m_ObjectFrame->GetTexture(),m_SkyFrame->GetTexture(), m_Bloom->GetMap(), true);
-			//m_Final->Render(m_Shadow->GetDepthMap(), m_Bloom->GetMap(), false);
-			//m_Final->Render(m_Shadow->GetDepthMap());
+#ifdef ENABLE_SPDLOG
+#if ENABLE_COMMENTS == 1
+			spdlog::info("RENDERER: ShowFrame()");
+#endif
+#endif
+			if (gBuffer) {
+				//top-left
+				glViewport(0, m_ObjectFrame->HalfHeight(), m_ObjectFrame->HalfWidth(), m_ObjectFrame->HalfHeight());
+				m_Final->Render(m_ObjectFrame->GetTexture(), m_SkyFrame->GetTexture(), m_Bloom->GetMap(), true);
+
+				//top-right
+				glViewport(m_ObjectFrame->HalfWidth(), m_ObjectFrame->HalfHeight(), m_ObjectFrame->HalfWidth(), m_ObjectFrame->HalfHeight());
+				m_GBuffer->Render(m_ObjectFrame->GetBaseColorTexture(),0);
+
+				//bottom-left
+				glViewport(0, 0, m_ObjectFrame->HalfWidth(), m_ObjectFrame->HalfHeight());
+				m_GBuffer->Render(m_ObjectFrame->GetNormalTexture(),0);
+
+				//bottom-right
+				glViewport(m_ObjectFrame->HalfWidth(), 0, m_ObjectFrame->HalfWidth(), m_ObjectFrame->HalfHeight());
+				m_GBuffer->Render(m_ObjectFrame->GetDepthMap(),1);
+			}
+			else {
+				glViewport(0, 0, m_ObjectFrame->Width(), m_ObjectFrame->Height());
+				m_Final->Render(m_ObjectFrame->GetTexture(), m_SkyFrame->GetTexture(), m_Bloom->GetMap(), true);
+			}
+			
 		}
 		SP_INLINE void BeginShadowPass(const glm::vec3& LightDir)
 		{
@@ -248,8 +271,8 @@ namespace SP {
 		std::unique_ptr<PrefilteredShader> m_Prefil;
 		std::unique_ptr<BrdfShader> m_Brdf;
 		std::unique_ptr<ShadowShader> m_Shadow;
-
 		std::unique_ptr<BloomShader> m_Bloom;
+		std::unique_ptr<GBufferShader> m_GBuffer;
 
 		SkyboxMesh m_SkyboxMesh;
 	};

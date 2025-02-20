@@ -31,7 +31,9 @@ void main(){
 
 #version 410 core
 layout (location = 0) out vec4 out_fragment;
-layout (location = 1) out vec4 out_brightness;
+layout (location = 1) out vec3 out_baseColor;
+layout (location = 2) out vec3 out_normal;
+layout (location = 3) out vec4 out_brightness;
 
 #define PI 3.14159265358979323846
 #define MAX_LIGHTS 10
@@ -383,6 +385,10 @@ void main(){
      //dot product = 1 means parallel vectors
      //dot product = 0 means perpendicular vectors
      //dot product >1 means upper quadrants (0-180deg)
+
+    out_fragment = vec4(result, 1.0);
+    out_baseColor = albedo;
+    out_normal = N;
     if(dot(result, BLOOM_THRESHOD) > 1.0) 
     {
         out_brightness = vec4(result, 1.0);
@@ -392,6 +398,6 @@ void main(){
         out_brightness = vec4(0.0, 0.0, 0.0, 1.0); 
     }
 
-	out_fragment = vec4(result, 1.0);
+	
 }
 //FRAGMENT//

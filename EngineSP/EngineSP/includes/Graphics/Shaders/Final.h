@@ -24,8 +24,8 @@ namespace SP
         SP_INLINE void Render(uint32_t map, uint32_t sky, uint32_t bloom, bool useBloom)
         {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
-            glClearColor(0, 0, 0, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
+            //glClearColor(0, 0, 0, 1);
+            //glClear(GL_COLOR_BUFFER_BIT);
 
             #ifdef ENABLE_SPDLOG
                 #if ENABLE_COMMENTS == 1

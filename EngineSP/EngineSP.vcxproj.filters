@@ -1164,6 +1164,9 @@
     <ClInclude Include="EngineSP\includes\Graphics\Buffers\FrameBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngineSP\includes\Graphics\Shaders\GBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineSP\src\EngineSP.cpp">
@@ -1238,5 +1241,7 @@
     <None Include="Resources\Shaders\brdf.glsl" />
     <None Include="Resources\Shaders\shadow.glsl" />
     <None Include="Resources\Shaders\bloom.glsl" />
+    <None Include="packages.config" />
+    <None Include="Resources\Shaders\gbuffer.glsl" />
   </ItemGroup>
 </Project>

@@ -22,30 +22,6 @@ namespace SP
 
         SP_INLINE void Bind() 
         { 
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("////////////////////");
-                    if(m_ShaderID==3)
-                        spdlog::info("FINAL SHADER");
-                    if (m_ShaderID == 6)
-                        spdlog::info("PBR SHADER");
-                    if (m_ShaderID == 9)
-                        spdlog::info("SKYBOX SHADER");
-                    if (m_ShaderID == 12)
-                        spdlog::info("SKYMAP SHADER");
-                    if (m_ShaderID == 15)
-                        spdlog::info("IRRADIANCE SHADER");
-                    if (m_ShaderID == 18)
-                        spdlog::info("PREFILTERED SHADER");
-                    if (m_ShaderID == 21)
-                        spdlog::info("BRDF SHADER");
-                    if (m_ShaderID == 24)
-                        spdlog::info("SHADOW SHADER");
-                    if (m_ShaderID == 27)
-                        spdlog::info("BLOOM SHADER");
-                    spdlog::info("////////////////////");
-                #endif
-            #endif
             glUseProgram(m_ShaderID); //switches shaders every time is called
         }  
     

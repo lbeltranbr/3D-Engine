@@ -13,17 +13,24 @@ namespace SP
             glBindFramebuffer(GL_FRAMEBUFFER, m_BufferID);
 
             CreateColorAttachment();
+			CreateBaseColorAttachment();
+			CreateNormalAttachment();
             CreateBrightnessAttachment();
-            CreateRenderBuffer();
+			CreateRenderBuffer();
 
-            // Attachment Tagets
-            uint32_t attachments[2] =
+			CreateDepthAttachment();
+
+
+            // Attachment Targets
+            uint32_t attachments[4] =
             {
                 GL_COLOR_ATTACHMENT0,
-                GL_COLOR_ATTACHMENT1
+                GL_COLOR_ATTACHMENT1,
+                GL_COLOR_ATTACHMENT2,
+                GL_COLOR_ATTACHMENT3
             };
 
-            glDrawBuffers(2, attachments);
+            glDrawBuffers(4, attachments);
 
             // check frame buffer
             if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
@@ -40,7 +47,10 @@ namespace SP
         SP_INLINE ~ObjectsBuffer()
         {
             glDeleteTextures(1, &m_Color);
+            glDeleteTextures(1, &m_BaseColor);
+            glDeleteTextures(1, &m_Normal);
             glDeleteTextures(1, &m_Brightness);
+            glDeleteTextures(1, &m_Depth);
             glDeleteRenderbuffers(1, &m_Render);
             glDeleteFramebuffers(1, &m_BufferID);
         }
@@ -53,13 +63,23 @@ namespace SP
 
 			// Resize Color Buffer
 			glBindTexture(GL_TEXTURE_2D, m_Color);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
-				m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+
+			// Resize BaseColor Buffer
+			glBindTexture(GL_TEXTURE_2D, m_BaseColor);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_Width, m_Height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+            
+            // Resize Normal Buffer
+			glBindTexture(GL_TEXTURE_2D, m_Normal);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, m_Width, m_Height, 0, GL_RGB, GL_FLOAT, NULL);
 
 			// Resize Brightness Buffer
 			glBindTexture(GL_TEXTURE_2D, m_Brightness);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F,
-				m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
+
+			// Resize Depth Buffer
+			glBindTexture(GL_TEXTURE_2D, m_Depth);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, m_Width, m_Height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 
 			// Resize Render Buffer
 			glBindRenderbuffer(GL_RENDERBUFFER, m_Render);
@@ -74,11 +94,23 @@ namespace SP
         {
             return m_Color;
         }
+		SP_INLINE uint32_t GetBaseColorTexture()
+		{
+			return m_BaseColor;
+		}
+		SP_INLINE uint32_t GetNormalTexture()
+		{
+            return m_Normal;
+		}
 
         SP_INLINE uint32_t GetBrightnessMap()
         {
             return m_Brightness;
         }
+		SP_INLINE uint32_t GetDepthMap()
+		{
+			return m_Depth;
+		}
 
 		SP_INLINE uint32_t GetBufferID()
 		{
@@ -89,10 +121,18 @@ namespace SP
         {
             return m_Height;
         }
+		SP_INLINE int32_t HalfHeight()
+		{
+			return m_Height/2;
+		}
 
         SP_INLINE int32_t Width()
         {
             return m_Width;
+        }
+        SP_INLINE int32_t HalfWidth()
+        {
+            return m_Width/2;
         }
 
         SP_INLINE float Ratio()
@@ -133,9 +173,32 @@ namespace SP
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_Color, 0); 
 
         }
+		SP_INLINE void CreateBaseColorAttachment()
+		{
+			glGenTextures(1, &m_BaseColor);
+			glBindTexture(GL_TEXTURE_2D, m_BaseColor);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_Width, m_Height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_BaseColor, 0);
+
+		}
+		SP_INLINE void CreateNormalAttachment()
+		{
+			glGenTextures(1, &m_Normal);
+			glBindTexture(GL_TEXTURE_2D, m_Normal);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, m_Width, m_Height, 0, GL_RGB, GL_FLOAT, NULL);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, m_Normal, 0);
+
+		}
         SP_INLINE void CreateBrightnessAttachment()
         {
-            //brightness comes from color attachment 2 from pbr shader 
             glGenTextures(1, &m_Brightness);
             glBindTexture(GL_TEXTURE_2D, m_Brightness);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -143,8 +206,19 @@ namespace SP
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, m_Width, m_Height, 0, GL_RGBA, GL_FLOAT, NULL);
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_Brightness, 0);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, m_Brightness, 0);
         }
+		SP_INLINE void CreateDepthAttachment()
+		{
+			glGenTextures(1, &m_Depth);
+			glBindTexture(GL_TEXTURE_2D, m_Depth);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, m_Width, m_Height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_Depth, 0);
+		}
 
         SP_INLINE void CreateRenderBuffer()
         {
@@ -158,11 +232,15 @@ namespace SP
         uint32_t m_BufferID = 0u;
         uint32_t m_Render = 0u;
         uint32_t m_Color = 0u;
+		uint32_t m_BaseColor = 0u;
+		uint32_t m_Normal = 0u;
+		uint32_t m_Brightness = 0u;
+		uint32_t m_Depth = 0u;
+
 
         int32_t m_Height = 0;
         int32_t m_Width = 0;
         int32_t m_Samples = 0;
 
-        uint32_t m_Brightness = 0u;
     };
 }

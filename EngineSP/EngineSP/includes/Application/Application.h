@@ -150,7 +150,7 @@ namespace SP {
 				for (auto layer : m_Context->Layers)
 					layer->OnUpdate();
 
-				m_Context->Renderer->ShowFrame();
+				m_Context->Renderer->ShowFrame(true);
 
 			}
 		}

@@ -125,52 +125,25 @@ namespace SP
             glUniformMatrix4fv(u_Proj, 1, GL_FALSE, glm::value_ptr(camera.Projection(ratio))); //1
             glUniformMatrix4fv(u_View, 1, GL_FALSE, glm::value_ptr(camera.View(transform))); //2
             glUniform3fv(u_ViewPos, 1, &transform.Translate.x);
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: Passing u_Proj");
-                    spdlog::info("PBR: Passing u_View");
-                #endif
-            #endif
         }
         //-------------ENVIRONMENT-------------//
         SP_INLINE void SetEnvMaps(uint32_t irrad, uint32_t prefil, uint32_t brdf, uint32_t depthMap)
         {
-            //glUseProgram(m_ShaderID);
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: passing IrradMap");
-                #endif
-            #endif
             // irradiance map
             glActiveTexture(GL_TEXTURE1);  // 0 is for the non used ones
             glBindTexture(GL_TEXTURE_CUBE_MAP, irrad);
             glUniform1i(u_IrradMap, 1);
 
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: passing PrefilMap");
-                #endif
-            #endif
             // prefiltered map
             glActiveTexture(GL_TEXTURE2);
             glBindTexture(GL_TEXTURE_CUBE_MAP, prefil);
             glUniform1i(u_PrefilMap, 2);
 
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: passing BrdfMap");
-                #endif
-            #endif
             // brdf map
             glActiveTexture(GL_TEXTURE3);
             glBindTexture(GL_TEXTURE_2D, brdf);
             glUniform1i(u_BrdfMap, 3);
 
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                            spdlog::info("PBR: passing DepthMap");
-                #endif
-            #endif
             // Depth Map
             glActiveTexture(GL_TEXTURE4);
             glBindTexture(GL_TEXTURE_2D, depthMap);
@@ -178,11 +151,6 @@ namespace SP
         }
         SP_INLINE void SetLightSpaceMatrix(const glm::mat4& lightSpaceMtx)
         {
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                spdlog::info("PBR: passing  u_LightSpace");
-                #endif
-            #endif
             // set view projection matrix
             glUniformMatrix4fv(u_LightSpace, 1, GL_FALSE, glm::value_ptr(lightSpaceMtx));
         }
@@ -190,11 +158,6 @@ namespace SP
         SP_INLINE void Draw(Model3D& model, PbrMaterial& material ,Transform3D& transform)
         {
             glUniformMatrix4fv(u_Model, 1, GL_FALSE, glm::value_ptr(transform.Matrix()));
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: passing u_Model");
-                #endif
-            #endif
 
             glUniform3fv(u_Emissive, 1, &material.Emissive.x);
             glUniform3fv(u_Albedo, 1, &material.Albedo.x);
@@ -213,11 +176,11 @@ namespace SP
             if (useMap) 
             { 
                 material.AlbedoMap->Use(u_AlbedoMap, unit++);
-                #ifdef ENABLE_SPDLOG
-                    #if ENABLE_COMMENTS == 1
-                        spdlog::info("PBR: passing AlbedoMap");
-                    #endif
-                #endif
+#ifdef ENABLE_SPDLOG
+#if ENABLE_COMMENTS == 1
+				spdlog::info("PBR: passing AlbedoMap");
+#endif
+#endif
             }
 
             // normal map
@@ -298,31 +261,11 @@ namespace SP
 
             //draw
             model->Draw(GL_TRIANGLES);
-
-            //for (int i = 0; i < unit; i++) 
-            //{
-            //    if (unit == 5)
-            //        break;
-            //    glActiveTexture(GL_TEXTURE0 + i);
-            //    glBindTexture(GL_TEXTURE_2D, 0);
-            //}
-
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: Draw()");
-                #endif
-            #endif
         }
         SP_INLINE void Draw(Mesh3D& mesh, Transform3D& transform)
         {
             // set transform
             glUniformMatrix4fv(u_Model, 1, GL_FALSE, glm::value_ptr(transform.Matrix()));//0
-            #ifdef ENABLE_SPDLOG
-                #if ENABLE_COMMENTS == 1
-                    spdlog::info("PBR: Passing u_Model");
-                    spdlog::info("PBR: Quad3D->Draw()");
-                #endif
-            #endif
             // render mesh
             mesh->Draw(GL_TRIANGLES);
         }
